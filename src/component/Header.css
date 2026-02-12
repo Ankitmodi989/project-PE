@@ -1,0 +1,28 @@
+.Header{
+    background-color: rgba(98, 69, 152, 0.784);
+    height: 50px;
+    display: flex;
+    justify-content: right;
+
+
+}
+a{
+    color: white;
+    font-size: large;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 5px;
+    
+}
+.form{
+    background-color: rgb(160, 160, 211);
+   
+}
+button{
+    height: 50px;
+    width: 80px;
+}
+button:hover{
+    background-color: black;
+    color:white;
+}
