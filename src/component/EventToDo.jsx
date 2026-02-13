@@ -1,5 +1,3 @@
-import React from 'react'
-
 const EventToDo = () => {
 
     function HandleClick(e){
@@ -9,21 +7,26 @@ const EventToDo = () => {
         const li = document.createElement("li");
         const d = document.getElementById('taskList');
         li.innerHTML = `<span>${input}</span>`;
-        <button class= "deleteBnt">Deleted</button>
+        const button = document.createElement("button")
+        button.value = "delete"
 
         d.appendChild(li);
+        li.appendChild(button);
+        button.innerHTML = "Delete"
+        button.className = "deleteBtn"
     }
-    function  handleClickList(){
-            const d = document.getElementById('taskList');
-            const button = document.createElement("button")
-
+    function  handleClickList(e){
+            
+            if(e.target.className === "deleteBtn"){
+              e.target.parentElement.remove();
+            }
     }
   return (
    <>
    <h1>ToDo App</h1> 
    <form  onSubmit={HandleClick}>
     <input type="text" name='task' placeholder='Add your task' />
-    <input type="submit" />
+    <button>Submit</button>
    </form>
    <ul id='taskList' onClick={handleClickList} >
         
