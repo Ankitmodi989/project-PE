@@ -1,17 +1,18 @@
-// import React from 'react'
-
+import React from 'react'
+import{Routes,Route} from 'react-router-dom';
 import { useState } from "react"
 import ProductList from "./component/ProductList";
 import Header from "./component/Header";
 import UseEffect from "./component/UseEffect";
 import Counter from "./component/Counter";
+import Api from "./component/Api";
 
-// import Counter from "./component/Counter"
-// import EventToDo from "./component/EventToDo"
-// import Search from "./component/Search"
+import EventToDo from "./component/EventToDo"
+import Search from "./component/Search"
+import Home from './component/Home';
 
 // import Wrapper from './component/Wrapper'
-export default function App ()  {
+export default function App() {
   // const user = [
   //   {name: "Virat Kohli",
   //   country: "India",
@@ -34,6 +35,7 @@ export default function App ()  {
       name:"Charger",
       price:5000,
       Image:"https://m.media-amazon.com/images/I/611crhyZZhL._AC_.jpg"
+    
     },{
       id:2,
       name:"Laptop",
@@ -58,26 +60,15 @@ export default function App ()  {
       setTotal(()=>total-price);
   }
 
-  
+
   return (
-    <div className="app">
+    <div>
       <Header cart={cart} total={total} products={products}></Header>
-      <ProductList products = {products} addToCard={addToCard} ></ProductList>
-      {
-        cart.map((product,index)=>{
-          return <div key={index}  >
-            <img src={product.Image} alt="" height={200} width={200} />
-            <h4>{product.name}</h4>
-            <p>{product.price}</p>
-            <button onClick={()=>removeFromCard(index,product.price)}> Remove Item from Card</button>
-          </div>
-        })
-      }
-      {/* <EventToDo></EventToDo>
-      <Counter></Counter> */}
-      {/* <Wrapper user = {user}></Wrapper> */}
-      {/* <UseEffect></UseEffect> */}
+       <ProductList products={products} addToCard={addToCard} ></ProductList>
+    <Routes>
       
+      <Route path='/' element={<Home></Home>}></Route>
+    </Routes>
     </div>
   )
 }
